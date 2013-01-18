@@ -30,7 +30,7 @@ using System.Collections.Concurrent;
 #endif
 using System.Collections.Generic;
 using System.ComponentModel;
-#if !(NET35 || NET20 || WINDOWS_PHONE || PORTABLE)
+#if !(NET35 || NET20 || WINDOWS_PHONE || PORTABLE || MONOTOUCH || MONODROID)
 using System.Dynamic;
 #endif
 using System.Globalization;
@@ -100,7 +100,7 @@ namespace Newtonsoft.Json.Serialization
 #if !(SILVERLIGHT || NET20 || NETFX_CORE || PORTABLE)
         new EntityKeyMemberConverter(),
 #endif
-#if !(NET35 || NET20 || WINDOWS_PHONE || PORTABLE)
+#if !(NET35 || NET20 || WINDOWS_PHONE || PORTABLE || MONOTOUCH || MONODROID)
         new ExpandoObjectConverter(),
 #endif
 #if (!(SILVERLIGHT || PORTABLE) || WINDOWS_PHONE)
@@ -775,7 +775,7 @@ namespace Newtonsoft.Json.Serialization
         return CreateISerializableContract(objectType);
 #endif
 
-#if !(NET35 || NET20 || WINDOWS_PHONE || PORTABLE)
+#if !(NET35 || NET20 || WINDOWS_PHONE || PORTABLE || MONOTOUCH || MONODROID)
       if (typeof(IDynamicMetaObjectProvider).IsAssignableFrom(t))
         return CreateDynamicContract(objectType);
 #endif

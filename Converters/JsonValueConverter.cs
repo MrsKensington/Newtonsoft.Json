@@ -28,6 +28,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Security;
 using Newtonsoft.Json.Utilities;
+
+#if !(MONOTOUCH || MONODROID)
 using Windows.Data.Json;
 
 namespace Newtonsoft.Json.Converters
@@ -196,3 +198,4 @@ namespace Newtonsoft.Json.Converters
     }
   }
 }
+#endif
